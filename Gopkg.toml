@@ -1,0 +1,19 @@
+[[constraint]]
+  name = "github.com/fasthttp/websocket"
+  version = "1.4.0"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/qbeon/webwire-go"
+
+[[constraint]]
+  name = "github.com/stretchr/testify"
+  version = "1.2.2"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/valyala/fasthttp"
+
+[prune]
+  go-tests = true
+  unused-packages = true
