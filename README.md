@@ -23,6 +23,9 @@ A transport layer implementation for [webwire-go](https://github.com/qbeon/webwi
 <a href="https://opensource.org/licenses/MIT">
 	<img src="https://img.shields.io/badge/License-MIT-green.svg" alt="Licence: MIT">
 </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fqbeon%2Fwebwire-go-fasthttp?ref=badge_shield" alt="FOSSA Status">
+	<img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fqbeon%2Fwebwire-go-fasthttp.svg?type=shield"/>
+</a>
 <a href="https://godoc.org/github.com/qbeon/webwire-go-fasthttp">
 	<img src="https://godoc.org/github.com/qbeon/webwire-go-fasthttp?status.svg" alt="GoDoc">
 </a>
