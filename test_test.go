@@ -32,10 +32,10 @@ func (tsi *TestSrvImpl) OnRequest(
 func TestNewServer(t *testing.T) {
 	srv, err := webwire.NewServer(
 		&TestSrvImpl{},
-		webwire.ServerOptions{
+		webwire.ServerOptions{},
+		&wwrfasthttp.Transport{
 			Host: "127.0.0.1:",
 		},
-		&wwrfasthttp.Transport{},
 	)
 	require.NoError(t, err)
 	require.NotNil(t, srv)
