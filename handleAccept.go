@@ -27,9 +27,17 @@ func (srv *Transport) handleAccept(ctx *fasthttp.RequestCtx) {
 		return
 	}
 
+	// Copy the user agent string
+	ua := ctx.UserAgent()
+	userAgent := make([]byte, len(ua))
+	copy(userAgent, ua)
+
 	connectionOptions := webwire.ConnectionOptions{
 		Connection:       webwire.Accept,
 		ConcurrencyLimit: 0,
+		Info: map[int]interface{}{
+			0: userAgent,
+		},
 	}
 	if srv.BeforeUpgrade != nil {
 		connectionOptions = srv.BeforeUpgrade(ctx)
@@ -39,12 +47,6 @@ func (srv *Transport) handleAccept(ctx *fasthttp.RequestCtx) {
 	if connectionOptions.Connection != webwire.Accept {
 		return
 	}
-
-	// Copy the user agent string
-	ua := ctx.UserAgent()
-	userAgent := make([]byte, len(ua))
-	copy(userAgent, ua)
-	connectionOptions.Info[0] = userAgent
 
 	if err := srv.Upgrader.Upgrade(
 		ctx,
