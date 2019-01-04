@@ -47,17 +47,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:a3a0a00f8dff84cb11a7a2cfbac03e6888d311676c967b908d1a373686413812"
+  digest = "1:1be23934518f8e70128f8b174b10355da41518798e66ecc164ba828af9ad5ef8"
   name = "github.com/qbeon/webwire-go"
   packages = [
     ".",
-    "connopt",
     "message",
     "payload",
-    "wwrerr",
   ]
   pruneopts = "UT"
-  revision = "9ab03dd58a5a534710527dbf16e4dedafe365e33"
+  revision = "0adb20f3068c22ce576a263906ba745e45e3931d"
 
 [[projects]]
   digest = "1:c40d65817cdd41fac9aa7af8bed56927bb2d6d47e4fea566a74880f5c2b1c41e"
@@ -80,7 +78,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:a9742739291f5e52dc45f8c51311c0364a2e29d16028d1cefaf38325356e0321"
+  digest = "1:8c411caaaf2ada42183585eb600447835015e026791e6923dfbaede32f43190b"
   name = "github.com/valyala/fasthttp"
   packages = [
     ".",
@@ -88,15 +86,15 @@
     "stackless",
   ]
   pruneopts = "UT"
-  revision = "8be35c8fb8933c6e072155d610aa9831aa823ea2"
+  revision = "9793e28938635f74d1ef3ce5c1cce9d840ed3a21"
 
 [[projects]]
   branch = "master"
-  digest = "1:5e4d81c50cffcb124b899e4f3eabec3930c73532f0096c27f94476728ba03028"
+  digest = "1:75515eedc0dc2cb0b40372008b616fa2841d831c63eedd403285ff286c593295"
   name = "golang.org/x/sync"
   packages = ["semaphore"]
   pruneopts = "UT"
-  revision = "42b317875d0fa942474b76e1b46a6060d720ae6e"
+  revision = "37e7f081c4d4c64e13b10787722085407fe5d15f"
 
 [solve-meta]
   analyzer-name = "dep"
@@ -104,9 +102,7 @@
   input-imports = [
     "github.com/fasthttp/websocket",
     "github.com/qbeon/webwire-go",
-    "github.com/qbeon/webwire-go/connopt",
     "github.com/qbeon/webwire-go/message",
-    "github.com/qbeon/webwire-go/wwrerr",
     "github.com/stretchr/testify/require",
     "github.com/valyala/fasthttp",
   ]

@@ -5,12 +5,11 @@ import (
 	"time"
 
 	"github.com/fasthttp/websocket"
-	"github.com/qbeon/webwire-go/connopt"
+	"github.com/qbeon/webwire-go"
 )
 
 func (srv *Transport) handleConnection(
-	connectionOptions connopt.ConnectionOptions,
-	userAgent []byte,
+	connectionOptions webwire.ConnectionOptions,
 	conn *websocket.Conn,
 ) {
 	conn.SetPongHandler(func(appData string) error {
@@ -37,9 +36,5 @@ func (srv *Transport) handleConnection(
 		return nil
 	})
 
-	srv.onNewConnection(
-		connectionOptions,
-		userAgent,
-		NewConnectedSocket(conn),
-	)
+	srv.onNewConnection(connectionOptions, NewConnectedSocket(conn))
 }

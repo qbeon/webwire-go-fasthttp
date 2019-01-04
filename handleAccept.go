@@ -4,7 +4,7 @@ import (
 	"bytes"
 
 	"github.com/fasthttp/websocket"
-	"github.com/qbeon/webwire-go/connopt"
+	"github.com/qbeon/webwire-go"
 	"github.com/valyala/fasthttp"
 )
 
@@ -27,8 +27,8 @@ func (srv *Transport) handleAccept(ctx *fasthttp.RequestCtx) {
 		return
 	}
 
-	connectionOptions := connopt.ConnectionOptions{
-		Connection:       connopt.Accept,
+	connectionOptions := webwire.ConnectionOptions{
+		Connection:       webwire.Accept,
 		ConcurrencyLimit: 0,
 	}
 	if srv.BeforeUpgrade != nil {
@@ -36,7 +36,7 @@ func (srv *Transport) handleAccept(ctx *fasthttp.RequestCtx) {
 	}
 
 	// Abort connection establishment if the connection was refused
-	if connectionOptions.Connection != connopt.Accept {
+	if connectionOptions.Connection != webwire.Accept {
 		return
 	}
 
@@ -44,11 +44,12 @@ func (srv *Transport) handleAccept(ctx *fasthttp.RequestCtx) {
 	ua := ctx.UserAgent()
 	userAgent := make([]byte, len(ua))
 	copy(userAgent, ua)
+	connectionOptions.Info[0] = userAgent
 
 	if err := srv.Upgrader.Upgrade(
 		ctx,
 		func(conn *websocket.Conn) {
-			srv.handleConnection(connectionOptions, userAgent, conn)
+			srv.handleConnection(connectionOptions, conn)
 		},
 	); err != nil {
 		// Establish connection

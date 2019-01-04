@@ -7,8 +7,7 @@ import (
 	"time"
 
 	"github.com/fasthttp/websocket"
-	wwr "github.com/qbeon/webwire-go"
-	"github.com/qbeon/webwire-go/connopt"
+	"github.com/qbeon/webwire-go"
 	"github.com/valyala/fasthttp"
 )
 
@@ -32,8 +31,8 @@ type Transport struct {
 	// incoming HTTP request to a WebSocket connection and can be used to
 	// intercept, configure or prevent incoming connections. BeforeUpgrade must
 	// return the connection options to be applied or set options.Connection to
-	// wwr.Refuse to refuse the incoming connection
-	BeforeUpgrade func(ctx *fasthttp.RequestCtx) connopt.ConnectionOptions
+	// webwire.Refuse to refuse the incoming connection
+	BeforeUpgrade func(ctx *fasthttp.RequestCtx) webwire.ConnectionOptions
 
 	// WarnLog defines the warn logging output target
 	WarnLog *log.Logger
@@ -57,8 +56,8 @@ type Transport struct {
 	listener        *tcpKeepAliveListener
 	addr            url.URL
 	readTimeout     time.Duration
-	isShuttingdown  wwr.IsShuttingDown
-	onNewConnection wwr.OnNewConnection
+	isShuttingdown  webwire.IsShuttingDown
+	onNewConnection webwire.OnNewConnection
 }
 
 // Address returns the URL address the server is listening on

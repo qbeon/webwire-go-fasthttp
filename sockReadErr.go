@@ -6,18 +6,18 @@ import (
 	"github.com/fasthttp/websocket"
 )
 
-// SockReadErr implements the SockReadErr interface
-type SockReadErr struct {
+// ErrSockRead implements the webwire.ErrSockRead interface
+type ErrSockRead struct {
 	cause error
 }
 
 // Error implements the Go error interface
-func (err SockReadErr) Error() string {
+func (err ErrSockRead) Error() string {
 	return fmt.Sprintf("reading socket failed: %s", err.cause)
 }
 
-// IsCloseErr implements the SockReadErr interface
-func (err SockReadErr) IsCloseErr() bool {
+// IsCloseErr implements the ErrSockRead interface
+func (err ErrSockRead) IsCloseErr() bool {
 	return websocket.IsCloseError(
 		err.cause,
 		websocket.CloseNormalClosure,
@@ -26,7 +26,7 @@ func (err SockReadErr) IsCloseErr() bool {
 	)
 }
 
-// SockReadWrongMsgTypeErr implements the SockReadErr interface
+// SockReadWrongMsgTypeErr implements the ErrSockRead interface
 type SockReadWrongMsgTypeErr struct {
 	messageType int
 }
@@ -36,7 +36,7 @@ func (err SockReadWrongMsgTypeErr) Error() string {
 	return fmt.Sprintf("invalid websocket message type: %d", err.messageType)
 }
 
-// IsCloseErr implements the SockReadErr interface
+// IsCloseErr implements the ErrSockRead interface
 func (err SockReadWrongMsgTypeErr) IsCloseErr() bool {
 	return false
 }

@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/fasthttp/websocket"
-	wwr "github.com/qbeon/webwire-go"
+	"github.com/qbeon/webwire-go"
 )
 
 // ClientTransport implements the webwire client transport layer with fasthttp
@@ -21,7 +21,7 @@ type ClientTransport struct {
 // NewSocket implements the ClientTransport interface
 func (cltTrans *ClientTransport) NewSocket(
 	dialTimeout time.Duration,
-) (wwr.ClientSocket, error) {
+) (webwire.ClientSocket, error) {
 	// Reset handshake timeout to client-enforced dial timeout
 	cltTrans.Dialer.HandshakeTimeout = dialTimeout
 
