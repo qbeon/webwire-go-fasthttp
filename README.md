@@ -19,6 +19,7 @@ A transport layer implementation for [webwire-go](https://github.com/qbeon/webwi
 <a href="https://codeclimate.com/github/qbeon/webwire-go-fasthttp/maintainability">
 	<img src="https://api.codeclimate.com/v1/badges/243a45cacec7d850c64d/maintainability" alt="CodeClimate: Maintainability">
 </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fqbeon%2Fwebwire-go-fasthttp?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fqbeon%2Fwebwire-go-fasthttp.svg?type=shield"/></a>
 <br>
 <a href="https://opensource.org/licenses/MIT">
 	<img src="https://img.shields.io/badge/License-MIT-green.svg" alt="Licence: MIT">
@@ -31,3 +32,7 @@ A transport layer implementation for [webwire-go](https://github.com/qbeon/webwi
 </a>
 <br>
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fqbeon%2Fwebwire-go-fasthttp.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fqbeon%2Fwebwire-go-fasthttp?ref=badge_large)
